@@ -8,12 +8,15 @@ fi
 
 terraform init
 
-project_id=$(echo "var.project_id" | terraform console -var-file terraform.tfvars)
-
 # terraform plan -target=module.gcp
 terraform apply -target=module.gcp "$AUTO_APPROVE"
 
-gcloud container clusters get-credentials "$project_id"
+PROJECT_ID=$(echo "var.project_id" |
+    terraform console -var-file terraform.tfvars |
+    sed -e 's/^"//' -e 's/"$//' | \
+        sed -e "s/^'//" -e "s/'$//")
+
+gcloud container clusters get-credentials "$PROJECT_ID"-gke
 
 /bin/sh get-cloudflare-secret.sh
 
