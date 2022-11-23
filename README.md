@@ -39,7 +39,7 @@ Destroying is much simpler. Simply run `terraform destroy` from the project dire
 Yes, but you will need to modify the cluster issuers and ExternalDNS to work with a different DNS provider.
 
 ### Can I use this without GCP?
-In theory yes but it will require the modules to be heavily rewritten. This is not recommended.
+In theory yes but it will require the modules to be heavily rewritten.
 
 ### Can I use this in production?
 This is not recommended. These modules are designed just for learning (e.g. using a GCP free trial).
