@@ -61,6 +61,6 @@ annotations:
 ```
 
 ### I am getting an SSL/TLS error or redirect error while accessing my domain after applying the ingress resource. How can I solve this?
-See ERR_TOO_MANY_REDIRECTS in Cloudflare Docs: [ERR_TOO_MANY_REDIRECTS](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/)
+See Cloudflare Docs: [ERR_TOO_MANY_REDIRECTS](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/)
 
 It is recommended to set the SSL/TLS encryption mode in Cloudflare to `Full` or `Full (strict)`; if using a staging certificate, use `Full`. With a prod certificate, both modes can be used.
