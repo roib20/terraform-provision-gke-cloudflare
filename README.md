@@ -55,8 +55,8 @@ Apply an approriate Ingress resource for your service (see Kuberenets documentat
 
 ```
 annotations:
-    external-dns.alpha.kubernetes.io/hostname: "your.domain,*.your.domain" # MODIFY THIS
-    cert-manager.io/cluster-issuer: letsencrypt-prod # or letsencrypt-staging
+    external-dns.alpha.kubernetes.io/hostname: "your.domain,*.your.domain"  # MODIFY THIS
+    cert-manager.io/cluster-issuer: letsencrypt-prod                        # or letsencrypt-staging
 ```
 
 The first annotation updates the DNS records using ExternalDNS. The second annotation uses cert-manager to provision a Let's Encrypt certificate (use either prod or staging).
