@@ -1,4 +1,4 @@
-# Learn Terraform - Provision a GKE Cluster
+# Terraform - Provision a GKE Cluster with Cloudflare ingress and ArgoCD
 
 This repo contains three Terraform modules to provision a GKE cluster (with VPC and subnet), then deploy Helm charts and Kubernetes manifests.
 
