@@ -2,7 +2,7 @@
 
 This repo contains three Terraform modules to provision a GKE cluster (with VPC and subnet), then deploy Helm charts and Kubernetes manifests.
 
-The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare — by utilizing [ingress-nginx](https://github.com/kubernetes/ingress-nginx), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) and [ArgoCD](https://argoproj.github.io/cd/) are also deployed.
+The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare — by utilizing [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://sealed-secrets.netlify.app/) and [Argo CD](https://argoproj.github.io/cd/) are also deployed.
 
 Note: the GCP module in this repo is a modified fork of [learn-terraform-provision-gke-cluster](https://github.com/hashicorp/learn-terraform-provision-gke-cluster); the MPL-2.0 license is adhered to.
 
