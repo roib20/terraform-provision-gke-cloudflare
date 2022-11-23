@@ -20,8 +20,8 @@ gcloud container clusters get-credentials "$PROJECT_ID"-gke
 
 /bin/sh get-cloudflare-secret.sh
 
-# terraform plan -target=module.helm_release
-terraform apply -target=module.helm_release "$AUTO_APPROVE"
+# terraform plan -target=module.helm_releases=module.helm_release
+terraform apply -target=module.helm_releases "$AUTO_APPROVE"
 
 # terraform plan
 terraform apply "$AUTO_APPROVE"
