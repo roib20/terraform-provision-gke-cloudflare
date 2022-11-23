@@ -1,0 +1,6 @@
+project_id           = ""
+region               = "me-west1"
+zone                 = "me-west1-a"
+gke_location         = "me-west1-a"
+gke_num_nodes        = "3"
+machine_type         = "e2-medium"

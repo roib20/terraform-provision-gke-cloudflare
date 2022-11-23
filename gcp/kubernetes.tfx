@@ -1,0 +1,45 @@
+# Kubernetes provider
+
+provider "kubernetes" {
+    host  = "https://${google_container_cluster.primary.endpoint}"
+    insecure = false
+
+    token                  = data.google_client_config.provider.access_token
+    cluster_ca_certificate = base64decode(google_container_cluster.primary.master_auth[0].cluster_ca_certificate)
+  }
+
+
+# Create ServiceAccount
+resource "kubernetes_manifest" "ServiceAccount" {
+  manifest = {
+    "apiVersion" : "v1",
+    "kind" : "ServiceAccount",
+    "metadata" : {
+      "name" : "admin-user",
+      "namespace" : "kube-system"
+    }
+  }
+}
+
+# Create ClusterRoleBinding
+resource "kubernetes_manifest" "ClusterRoleBinding" {
+  manifest = {
+    "apiVersion" : "rbac.authorization.k8s.io/v1",
+    "kind" : "ClusterRoleBinding",
+    "metadata" : {
+      "name" : "admin-user"
+    },
+    "roleRef" : {
+      "apiGroup" : "rbac.authorization.k8s.io",
+      "kind" : "ClusterRole",
+      "name" : "cluster-admin"
+    },
+    "subjects" : [
+      {
+        "kind" : "ServiceAccount",
+        "name" : "admin-user",
+        "namespace" : "kube-system"
+      }
+    ]
+  }
+}

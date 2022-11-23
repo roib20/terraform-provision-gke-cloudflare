@@ -1,0 +1,36 @@
+resource "helm_release" "ingress-nginx" {
+  name       = "ingress-nginx"
+  repository = "https://kubernetes.github.io/ingress-nginx"
+  chart      = "ingress-nginx"
+  namespace  = "default"
+  create_namespace = "true"
+
+  values = [
+    file("${path.module}/values/ingress-nginx_values.yaml")
+  ]
+
+  set {
+    name  = "setAsDefaultIngress"
+    value = "true"
+  }
+
+  set {
+    name  = "enableCustomResources"
+    value = "true"
+  }
+
+  set {
+    name  = "controller.enableCertManager"
+    value = "true"
+  }
+
+  set {
+    name  = "enableExternalDNS"
+    value = "true"
+  }
+
+  set {
+    name  = "controller.metrics.enabled"
+    value = "true"
+  }
+}
