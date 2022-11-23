@@ -21,13 +21,13 @@ For Cloudflare, you should own a domain and register it in Cloudflare. Then gene
 ## How to deploy this?
 1) In your shell, run `gcloud init` 
 
-2) Edit the `terraform.tfvars.example` file;
-Use the command: `cp 'terraform.tfvars.example' 'terraform.tfvars'`
-Then edit using a text editor. Make sure to add an appropriate GCP project ID (according to what you configured in step 1).
+2) Edit the `terraform.tfvars.example` file:
+* Use the command: `cp "terraform.tfvars.example" "terraform.tfvars"`
+* Edit `terraform.tfvars` using a text editor. Make sure to add an appropriate GCP project ID (according to what you configured in step 1).
 
 3) Run the `init-tf.sh` script
 
-4) When running the script, the GKE cluster would be provisioned first together with a sealed-secrets controller. You would then be asked to provide your Cloudflare API token which will be configured as a sealed secret and used for the DNS-01 challange and ExternalDNS.
+4) When running the script, the GKE cluster would be provisioned first, together with a sealed-secrets controller. You would then be asked to provide your Cloudflare API token which will be configured as a sealed secret and used for the DNS-01 challange and ExternalDNS.
 
 5) When the script completes, run `kubectl get pods -A` to ensure everything deployed correctly.
 
