@@ -45,10 +45,10 @@ In theory yes but it will require the modules to be heavily rewritten. This is n
 This is not recommended. These modules are designed just for learning (e.g. using a GCP free trial).
 
 ### Can I deploy other Helm charts?
-Yes, in the "helm_release" folder, add your Helm charts as a tf file containing a "helm_release" resource.
+Yes, in the "helm_releases" folder, add your Helm charts as a tf file containing a "helm_release" resource.
 
 ### Can I deploy other Kubernetes manifests?
-Yes, in the "kubernetes_manifest" folder, add your Helm charts as a tf file containing a "kubernetes_manifest" resource. Make sure the manifest is formatted as JSON, not YAML.
+Yes, in the "kubernetes_manifests" folder, add your Helm charts as a tf file containing a "kubernetes_manifest" resource. Make sure the manifest is formatted as JSON, not YAML.
 
 ### How do I access the Ingress?
 Apply an approriate Ingress resource for your service (see Kuberenets documentation) and add the following annotations:

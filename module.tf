@@ -12,8 +12,8 @@ module "gcp" {
   machine_type = var.machine_type
 }
 
-module "helm_release" {
-  source = "./helm_release"
+module "helm_releases" {
+  source = "./helm_releases"
 
   gke_username = var.gke_username
   gke_password = var.gke_password
@@ -25,8 +25,8 @@ module "helm_release" {
   kubernetes_cluster_ca_certificate = module.gcp.kubernetes_cluster_ca_certificate
 }
 
-module "kubernetes_manifest" {
-  source = "./kubernetes_manifest"
+module "kubernetes_manifests" {
+  source = "./kubernetes_manifests"
 
   gke_username = var.gke_username
   gke_password = var.gke_password
