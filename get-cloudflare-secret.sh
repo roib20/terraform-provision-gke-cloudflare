@@ -19,7 +19,9 @@ if curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
     valid_token=true
     echo "Valid Cloudflare API token"
 else
-    echo "Invalid Cloudflare API token"
+    echo "Invalid Cloudflare API token.
+    For getting your token, see instructions here:
+    https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/#api-tokens"
 fi
 done
 
