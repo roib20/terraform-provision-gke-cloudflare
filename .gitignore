@@ -31,3 +31,7 @@ override.tf.json
 # Ignore lock files
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
+
+# Ignore tfvars
+terraform.tfvars
+
