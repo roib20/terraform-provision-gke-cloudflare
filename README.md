@@ -1,8 +1,8 @@
-# Terraform - Provision a GKE Cluster with Cloudflare ingress and ArgoCD
+# Terraform - Provision a GKE Cluster with Cloudflare Ingress and ArgoCD
 
 This repo contains three Terraform modules to provision a GKE cluster (with VPC and subnet), then deploy Helm charts and Kubernetes manifests.
 
-The included deployments are designed for a fully-functioning ingress controller that works with Cloudflare — by utilizing [ingress-nginx](https://github.com/kubernetes/ingress-nginx), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) and [ArgoCD](https://argoproj.github.io/cd/) are also deployed.
+The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare — by utilizing [Ingress-nginx](https://github.com/kubernetes/Ingress-nginx), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) and [ArgoCD](https://argoproj.github.io/cd/) are also deployed.
 
 Note: the GCP module in this repo is a modified fork of [learn-terraform-provision-gke-cluster](https://github.com/hashicorp/learn-terraform-provision-gke-cluster); the MPL-2.0 license is adhered to.
 
@@ -50,15 +50,16 @@ Yes, in the "helm_release" folder, add your Helm charts as a tf file containing 
 ### Can I deploy other Kubernetes manifests?
 Yes, in the "kubernetes_manifest" folder, add your Helm charts as a tf file containing a "kubernetes_manifest" resource. Make sure the manifest is formatted as JSON, not YAML.
 
-### How do I access the ingress?
+### How do I access the Ingress?
 Apply an approriate Ingress resource for your service (see Kuberenets documentation) and add the following annotations:
+
 ```
 annotations:
     external-dns.alpha.kubernetes.io/hostname: "your.domain,*.your.domain" # MODIFY THIS
     cert-manager.io/cluster-issuer: letsencrypt-prod # or letsencrypt-staging
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 ```
+
+The first annotation updates the DNS records using ExternalDNS. The second annotation uses cert-manager to provision a Let's Encrypt certificate (use either prod or staging).
 
 ### I am getting an SSL/TLS error or redirect error while accessing my domain after applying the ingress resource. How can I solve this?
 See Cloudflare Docs: [ERR_TOO_MANY_REDIRECTS](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/)
