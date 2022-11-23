@@ -16,7 +16,7 @@ PROJECT_ID=$(echo "var.project_id" |
     sed -e 's/^"//' -e 's/"$//' | \
         sed -e "s/^'//" -e "s/'$//")
 
-gcloud container clusters get-credentials "$PROJECT_ID"-gke
+gcloud container clusters get-credentials "$PROJECT_ID-gke"
 
 /bin/sh get-cloudflare-secret.sh
 
