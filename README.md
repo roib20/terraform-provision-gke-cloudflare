@@ -7,7 +7,7 @@ The included deployments are designed for a fully-functioning Ingress controller
 Note: the GCP module in this repo is a modified fork of [learn-terraform-provision-gke-cluster](https://github.com/hashicorp/learn-terraform-provision-gke-cluster); the MPL-2.0 license is adhered to.
 
 ## What is needed to deploy?
-The `deploy.sh` script does everything needed in order to deploy the full environment in the correct order. In order to use this script, you need a Unix shell (the script is written for POSIX shell - desgined to have wide compatibility in Linux, macOS and WSL environments).
+The `deploy.sh` script does everything needed in order to deploy the full environment in the correct order. In order to use this script, you need a Unix shell (the script is written for POSIX shell - designed to have wide compatibility in Linux, macOS and WSL environments).
 
 In addition, you will need to have the following packages installed:  
 * [gcloud CLI](https://cloud.google.com/sdk/docs/install) (configured with `gcloud init`)
