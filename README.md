@@ -1,5 +1,7 @@
 # Terraform - Provision a GKE Cluster with Cloudflare Ingress and ArgoCD
 
+[![License](https://img.shields.io/badge/license-MPL_2.0-orange)](https://www.mozilla.org/en-US/MPL/2.0/)
+
 This repo contains three Terraform modules to provision a GKE cluster (with VPC and subnet), then deploy Helm charts and Kubernetes manifests.
 
 The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare — by utilizing [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://sealed-secrets.netlify.app/) and [Argo CD](https://argoproj.github.io/cd/) are also deployed.
