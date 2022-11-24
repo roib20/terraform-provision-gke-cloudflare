@@ -6,7 +6,7 @@ This repo contains three Terraform modules to provision a GKE cluster (with VPC 
 
 The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare — by utilizing [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://sealed-secrets.netlify.app/) and [Argo CD](https://argoproj.github.io/cd/) are also deployed.
 
-Note: the GCP module in this repo is a modified fork of [learn-terraform-provision-gke-cluster](https://github.com/hashicorp/learn-terraform-provision-gke-cluster); the MPL-2.0 license is adhered to.
+Note: the GCP module in this repo is a modified fork of [learn-terraform-provision-gke-cluster](https://github.com/hashicorp/learn-terraform-provision-gke-cluster); the MPL 2.0 license is adhered to.
 
 ## What is needed to deploy?
 The `deploy.sh` script does everything needed in order to deploy the full environment in the correct order. In order to use this script, you need a Unix shell (the script is written for POSIX shell - designed to have wide compatibility in Linux, macOS and WSL environments).
@@ -44,7 +44,7 @@ Yes, but you will need to modify the cluster issuers and ExternalDNS to work wit
 In theory yes but it will require the modules to be heavily rewritten.
 
 ### Can I use this in production?
-This is not recommended. These modules are designed just for learning (e.g. using a GCP free trial).
+This is not recommended. These modules are designed only for learning (e.g. using a GCP free trial).
 
 ### Can I deploy other Helm charts?
 Yes, in the "helm_releases" folder, add any additional Helm chart as a tf file containing a "helm_release" resource.
@@ -66,4 +66,4 @@ The first annotation updates the DNS records using ExternalDNS. The second annot
 ### I am getting an SSL/TLS error or redirect error while accessing my domain after applying the ingress resource. How can I solve this?
 See Cloudflare Docs: [ERR_TOO_MANY_REDIRECTS](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/)
 
-It is recommended to set the SSL/TLS encryption mode in Cloudflare to `Full` or `Full (strict)`; if using a staging certificate, use `Full`. With a prod certificate, both modes can be used.
+It is recommended to set the SSL/TLS encryption mode in Cloudflare to `Full` or `Full (strict)`; if using a staging or self-signed certificate, use `Full`. With a prod certificate, both modes can be used. If not using *any* certificate, use Cloudflare's "Flexible" mode.
