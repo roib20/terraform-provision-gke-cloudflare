@@ -17,7 +17,18 @@ PROJECT_ID=$(echo "var.project_id" |
     sed -e 's/^"//' -e 's/"$//' | \
         sed -e "s/^'//" -e "s/'$//")
 
-gcloud container clusters get-credentials "$PROJECT_ID-gke"
+ZONE=$(echo "var.zone" |
+    terraform console -var-file terraform.tfvars |
+    sed -e 's/^"//' -e 's/"$//' | \
+        sed -e "s/^'//" -e "s/'$//")
+
+REGION=$(echo "var.region" |
+    terraform console -var-file terraform.tfvars |
+    sed -e 's/^"//' -e 's/"$//' | \
+        sed -e "s/^'//" -e "s/'$//")
+
+gcloud container clusters get-credentials "$PROJECT_ID-gke" --zone "$ZONE" || \
+gcloud container clusters get-credentials "$PROJECT_ID-gke" --region "$REGION"
 
 /bin/sh get-cloudflare-secret.sh
 
