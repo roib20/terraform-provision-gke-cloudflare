@@ -1,11 +1,11 @@
 variable "gke_username" {
   default     = ""
-  description = "gke username"
+  description = "GKE username"
 }
 
 variable "gke_password" {
   default     = ""
-  description = "gke password"
+  description = "GKE password"
   sensitive   = true
 }
 

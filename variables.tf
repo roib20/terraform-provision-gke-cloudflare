@@ -1,12 +1,12 @@
 # gcp variables
 variable "gke_username" {
   default     = ""
-  description = "gke username"
+  description = "GKE username"
 }
 
 variable "gke_password" {
   default     = ""
-  description = "gke password"
+  description = "GKE password"
   sensitive   = true
 }
 
@@ -16,21 +16,18 @@ variable "project_id" {
 
 variable "region" {
   description = "region"
-  default     = "me-west1"
 }
 
 variable "zone" {
   description = "zone"
-  default     = "me-west1-a"
 }
 
 variable "gke_location" {
   description = "The location (region or zone) of the cluster"
-  default     = "me-west1-a"
 }
 
 variable "gke_num_nodes" {
-  description = "number of gke nodes"
+  description = "number of GKE nodes"
 }
 
 variable "machine_type" {
