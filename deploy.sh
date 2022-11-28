@@ -6,6 +6,7 @@ else
     AUTO_APPROVE=""
 fi
 
+gcloud services enable container.googleapis.com
 terraform init
 
 # terraform plan -target=module.gcp
