@@ -31,6 +31,7 @@ gcloud container clusters get-credentials "$PROJECT_ID-gke" --zone "$ZONE" || \
 gcloud container clusters get-credentials "$PROJECT_ID-gke" --region "$REGION"
 
 /bin/sh get-cloudflare-secret.sh
+/bin/sh gen-secrets.sh
 
 # terraform plan -target=module.helm_releases
 terraform apply -target=module.helm_releases "$AUTO_APPROVE"
