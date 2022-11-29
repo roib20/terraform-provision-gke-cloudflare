@@ -4,9 +4,19 @@
 
 This repo contains three Terraform modules to provision a GKE cluster (with VPC and subnet), then deploy Helm charts and Kubernetes manifests.
 
-The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare — by utilizing [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), [cert-manager](https://cert-manager.io/) and [ExternalDNS](https://github.com/kubernetes-sigs/external-dns). In addition, [sealed-secrets](https://sealed-secrets.netlify.app/) and [Argo CD](https://argoproj.github.io/cd/) are also deployed.
+The included deployments are designed for a fully-functioning Ingress controller that works with Cloudflare.
 
 Note: the GCP module in this repo is a modified fork of [learn-terraform-provision-gke-cluster](https://github.com/hashicorp/learn-terraform-provision-gke-cluster); the MPL 2.0 license is adhered to.
+
+<br />
+
+## What is deployed?
+
+- **Secret Management:** [Sealed Secrets](https://sealed-secrets.netlify.app/)  
+- **Ingress Controller:** [Ingress NGINX Controller](https://kubernetes.github.io/ingress-nginx/)  
+- **TLS Certificate:** [cert-manager](https://cert-manager.io/) & [Let's Encrypt](https://letsencrypt.org/)  
+- **Authoritative DNS:** [ExternalDNS](https://github.com/kubernetes-sigs/external-dns) & [Cloudflare DNS](https://www.cloudflare.com/dns/)  
+- **GitOps:** [Argo CD](https://argoproj.github.io/cd/)  
 
 ## What is needed to deploy?
 The `deploy.sh` script does everything needed in order to deploy the full environment in the correct order. In order to use this script, you need a Unix shell (the script is written for POSIX shell - designed to have wide compatibility in Linux, macOS and WSL environments).
@@ -18,7 +28,6 @@ In addition, you will need to have the following packages installed:
 * [Terraform](https://developer.hashicorp.com/terraform/downloads)
 
 For Cloudflare, you should own a domain and register it in Cloudflare. Then generate an API token with the permissions described here: https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/#api-tokens
-
 
 ## How to deploy this?
 1) In your shell, run `gcloud init` 
@@ -36,7 +45,9 @@ For Cloudflare, you should own a domain and register it in Cloudflare. Then gene
 7) When the script completes, run `kubectl get pods -A` to ensure everything deployed correctly.
 
 ## How to destroy this?
-Destroying is much simpler. Simply run `terraform destroy` from the project directory.
+Destroying is much simpler. Just run `terraform destroy` from the project directory.
+
+<br />
 
 ## FAQ
 ### Can I use this without Cloudflare?
