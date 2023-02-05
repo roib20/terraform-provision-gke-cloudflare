@@ -1,6 +1,7 @@
 # Terraform - Provision a GKE Cluster with Cloudflare Ingress and ArgoCD
 
 [![License](https://img.shields.io/badge/license-MPL_2.0-orange)](https://www.mozilla.org/en-US/MPL/2.0/)
+[![ShellCheck](https://github.com/roib20/terraform-provision-gke-cloudflare/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/roib20/terraform-provision-gke-cloudflare/actions/workflows/shellcheck.yml)
 
 This repo contains three Terraform modules to provision a GKE cluster (with VPC and subnet), then deploy Helm charts and Kubernetes manifests.
 
