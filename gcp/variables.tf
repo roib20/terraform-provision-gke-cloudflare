@@ -32,3 +32,8 @@ variable "gke_num_nodes" {
 variable "machine_type" {
   description = "Google Compute Engine machine type"
 }
+
+variable "gke_deletion_protection" {
+  description = "Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state."
+  default = false
+}
