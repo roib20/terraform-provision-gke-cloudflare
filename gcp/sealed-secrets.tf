@@ -1,8 +1,8 @@
 resource "helm_release" "sealed-secrets" {
   name                = "sealed-secrets-controller"
-  repository          = "https://charts.bitnami.com/bitnami"
+  repository          = "https://bitnami-labs.github.io/sealed-secrets/"
   chart               = "sealed-secrets"
-  # version             = "1.1.12"
+  # version             = "2.17.2"
 
   namespace           = "default"
   create_namespace    = "true"
