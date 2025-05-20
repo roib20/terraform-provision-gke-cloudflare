@@ -12,17 +12,22 @@ resource "helm_release" "external-dns" {
   ]
 
   set {
-    name  = "provider"
+    name  = "provider.name"
     value = "cloudflare"
   }
 
-  set_sensitive {
-    name  = "cloudflare.secretName"
+  set {
+    name  = "env[0].name"
+    value = "CF_API_TOKEN"
+  }
+
+  set {
+    name  = "env[0].valueFrom.secretKeyRef.name"
     value = "cloudflare-secret"
   }
 
   set {
-    name  = "cloudflare.proxied"
-    value = "true"
+    name  = "env[0].valueFrom.secretKeyRef.key"
+    value = "cloudflare_api_token"
   }
 }
