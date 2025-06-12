@@ -35,3 +35,9 @@ override.tf.json
 # Ignore tfvars
 terraform.tfvars
 
+# Ignore terragrunt cache directories
+**/.terragrunt-cache/*
+
+# Ignore terragrunt stack directories
+**/.terragrunt-stack/*
+
