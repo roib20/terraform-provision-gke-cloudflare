@@ -31,7 +31,7 @@ NAMESPACE="default"
 # Remove previous secret by the same name
 ( kubectl delete --namespace "${NAMESPACE}" sealedsecrets.bitnami.com "${SECRET_NAME}" ) > /dev/null 2>&1
 
-kubectl --namespace sealed-secrets \
+kubectl --namespace "${NAMESPACE}" \
   create secret \
   generic "${SECRET_NAME}" \
   --dry-run=client \
