@@ -26,11 +26,12 @@ fi
 done
 
 SECRET_NAME="cloudflare-secret"
+NAMESPACE="default"
 
 # Remove previous secret by the same name
-( kubectl delete sealedsecrets.bitnami.com ${SECRET_NAME} ) > /dev/null 2>&1
+( kubectl delete --namespace "${NAMESPACE}" sealedsecrets.bitnami.com "${SECRET_NAME}" ) > /dev/null 2>&1
 
-kubectl --namespace default \
+kubectl --namespace sealed-secrets \
   create secret \
   generic "${SECRET_NAME}" \
   --dry-run=client \
@@ -38,11 +39,12 @@ kubectl --namespace default \
   --output json |
   kubeseal \
       --controller-name=sealed-secrets-controller \
-      --controller-namespace=default \
+      --controller-namespace="${NAMESPACE}" \
       |
   tee "${SECRET_NAME}".yaml
 
 kubectl create \
+  --namespace "${NAMESPACE}"\
   --filename "${SECRET_NAME}".yaml
 
 rm "${SECRET_NAME}".yaml
