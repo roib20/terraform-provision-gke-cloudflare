@@ -16,8 +16,8 @@ resource "kubernetes_manifest" "clusterissuer-prod" {
             "dns01" : {
               "cloudflare" : {
                 "apiTokenSecretRef" : {
-                  "name" : "cloudflare-secret",
-                  "key" : "cloudflare_api_token"
+                  "name" : "cloudflare-api-token-secret",
+                  "key" : "api-token"
                 }
               }
             }

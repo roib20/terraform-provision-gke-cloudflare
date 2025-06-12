@@ -23,11 +23,11 @@ resource "helm_release" "external-dns" {
 
   set {
     name  = "env[0].valueFrom.secretKeyRef.name"
-    value = "cloudflare-secret"
+    value = "cloudflare-api-token-secret"
   }
 
   set {
     name  = "env[0].valueFrom.secretKeyRef.key"
-    value = "cloudflare_api_token"
+    value = "api-token"
   }
 }

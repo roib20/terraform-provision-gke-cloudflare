@@ -25,7 +25,7 @@ else
 fi
 done
 
-SECRET_NAME="cloudflare-secret"
+SECRET_NAME="cloudflare-api-token-secret"
 NAMESPACE="kube-system"
 
 # Remove previous secret by the same name
@@ -35,7 +35,7 @@ kubectl --namespace "${NAMESPACE}" \
   create secret \
   generic "${SECRET_NAME}" \
   --dry-run=client \
-  --from-literal cloudflare_api_token="${CLOUDFLARE_API_TOKEN}" \
+  --from-literal api-token="${CLOUDFLARE_API_TOKEN}" \
   --output json |
   kubeseal \
       --controller-name=sealed-secrets-controller \
