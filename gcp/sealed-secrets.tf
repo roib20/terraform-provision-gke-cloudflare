@@ -4,7 +4,7 @@ resource "helm_release" "sealed-secrets" {
   chart               = "sealed-secrets"
   # version             = "2.17.2"
 
-  namespace           = "default"
+  namespace           = "kube-system"
   create_namespace    = "true"
 
   values = [

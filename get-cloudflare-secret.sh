@@ -26,7 +26,7 @@ fi
 done
 
 SECRET_NAME="cloudflare-secret"
-NAMESPACE="default"
+NAMESPACE="kube-system"
 
 # Remove previous secret by the same name
 ( kubectl delete --namespace "${NAMESPACE}" sealedsecrets.bitnami.com "${SECRET_NAME}" ) > /dev/null 2>&1
